@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft= "@dimen/activity_horizontal_margin"
+    android:paddingRight = "@dimen/activity_horizontal_margin"
+    android:paddingTop = "@dimen/activity_vertical_margin"
+    android:paddingBottom = "@dimen/activity_vertical_margin"
+    android:background="@drawable/background1"
+    tools:context=".register">
+
+    <TextView
+        android:text = "Register"
+        android:layout_width="wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/textview"
+        android:textSize = "35dp"
+        android:textColor="#F6FAF9"
+        android:layout_alignParentTop = "true"
+        android:layout_centerHorizontal = "true" />
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:focusable="true"
+        android:hint="Create your username"
+        android:textColorHighlight="#ff7eff15"
+        android:textColorHint="#F6FAF9"
+        android:textColor="#F6FAF9"/>
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/editText1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_alignEnd="@+id/editText1"
+        android:textColorHint="#F6FAF9"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="Enter email id"
+        android:textColor="#F6FAF9"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2"
+        android:textColorHint="#F6FAF9"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#F6FAF9"
+        android:hint="Create your password" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText5"
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText4"
+        android:layout_alignEnd="@+id/editText4"
+        android:textColorHint="#F6FAF9"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#F6FAF9"
+        android:hint="Enter phone no." />
+    <Button
+        android:id = "@+id/button1"
+        android:layout_width = "350dp"
+        android:layout_height = "wrap_content"
+        android:text = "Register"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/editText5"/>
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="          Already have an account? LOGIN"
+        android:textColor="#F6FAF9"
+        />
+
+    <Button
+        android:id = "@+id/button2"
+        android:layout_width = "350dp"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text = "Login"
+        android:layout_below="@+id/textview1" />
+
+
+
+
+</RelativeLayout>
