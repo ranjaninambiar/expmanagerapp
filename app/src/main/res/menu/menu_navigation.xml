@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Home"
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_baseline_home_24"/>
+    <item android:title="Login"
+        android:id="@+id/action_login"
+        android:icon="@drawable/ic_baseline_person_pin_24"/>
+    <item android:title="Sign up"
+        android:id="@+id/action_signup"
+        android:icon="@drawable/ic_baseline_assignment_ind_24"/>
+    <item android:title="Settings"
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+</menu>

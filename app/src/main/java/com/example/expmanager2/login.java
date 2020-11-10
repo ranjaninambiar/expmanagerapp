@@ -17,6 +17,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     Button log;
     EditText un,passw;
     SQLiteDatabase db1;
+    static int s=0;
     final int MYREQUEST1 = 111;
 
 
@@ -38,12 +39,20 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             if (c.moveToFirst() ){
                 if (c.getString(1).matches(String.valueOf(passw.getText()))) {
                     Toast.makeText(getApplicationContext(),"Login successful", Toast.LENGTH_SHORT).show();
-                   Intent in=new Intent(this,form.class);
-                   //in.putExtra("name","Login");
-                   in.putExtra("name", String.valueOf(un.getText()));
+                    if(s==0){
+                       Intent in=new Intent(this,form.class);
+                       //in.putExtra("name","Login");
+                       in.putExtra("name", String.valueOf(un.getText()));
+                       startActivityForResult(in,MYREQUEST1);
+                    s=1;}
+                    else{
+                        Intent in=new Intent(this,User_profile.class);
+                        //in.putExtra("name","Login");
+                        in.putExtra("name", String.valueOf(un.getText()));
+                        startActivityForResult(in,MYREQUEST1);
 
+                    }
 
-                   startActivityForResult(in,MYREQUEST1);
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Uname or pwd incorrect", Toast.LENGTH_SHORT).show();

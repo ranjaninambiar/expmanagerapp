@@ -5,5 +5,28 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#00a5ff</color>
+    <color name="fab_pressed">#546e7a</color>
+    <color name="mycolor">#673AB7</color>
+
+
+
+
+    <color name="color_one">#fb7268</color>
+    <color name="color_white">#ededf2</color>
+    <color name="color_two">#E3E0E0</color>
+
+    <color name="R">#FFA726</color>
+    <color name="Python">#66BB6A</color>
+    <color name="CPP">#EF5350</color>
+    <color name="Java">#29B6F6</color>
+    <color name="others">#673AB7</color>
+    <color name="gym">#DE25E4</color>
+    <color name="loan">#AD1457</color>
+    <color name="insurance">#D50000</color>
+    <color name="medicines">#F4FF81</color>
+    <color name="travel">#FF9E80</color>
+    <color name="eb">#689F38</color>
+    <color name="retail">#E64A19</color>
+    <color name="food">#00796B</color>
 
 </resources>

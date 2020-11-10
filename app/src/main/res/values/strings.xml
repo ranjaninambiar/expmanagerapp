@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">expmanager2</string>
     <string name="h_income">20dp</string>
+    <string-array name="list">
+        <item>ELECTRICITY</item>
+        <item>DTH/CABLE</item>
+        <item>TELEPHONE</item>
+        <item>GROCERY</item>
+        <item>ONLINE SHOPPING</item>
+        <item>OTHERS</item>
+        <item>GYM</item>
+        <item>FOOD</item>
+        <item>INSURANCE</item>
+        <item>LOAN</item>
+        <item>MEDICINE</item>
+        <item>RETAIL</item>
+        <item>SERVICE</item>
+        <item>TRAVEL</item>
+    </string-array>
+    <string name="add_reminder">Reminder</string>
+
 </resources>
