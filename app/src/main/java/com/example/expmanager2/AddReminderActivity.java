@@ -47,6 +47,9 @@ public class AddReminderActivity extends AppCompatActivity implements AdapterVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_reminder);
+        Bundle b=getIntent().getExtras();
+        final String u_name=b.getString("name");
+
         s1 = (Spinner) findViewById(R.id.spinner1);
         // Small, Medium, Large
         // size = s1.getSelectedItem().toString();
@@ -70,27 +73,10 @@ public class AddReminderActivity extends AppCompatActivity implements AdapterVie
         add.setOnClickListener(this);
         modify.setOnClickListener(this);
         delete.setOnClickListener(this);
-        db = openOrCreateDatabase("UsersDB", Context.MODE_PRIVATE, null);
-        db.execSQL("DROP TABLE expends;");
-        db.execSQL("DROP TABLE expend;");
-        db.execSQL("CREATE TABLE IF NOT EXISTS expends(uname VARCHAR ,catagory VARCHAR ,total number);");
-        //db.execSQL("DELETE FROM expend;");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','ELECTRICITY' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','DTH/CABLE' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','TELEPHONE' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','GROCERY' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','OTHERS' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','ONLINE SHOPPING' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','ALERT' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','GYM' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','FOOD' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','INSURANCE' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','LOAN' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','GYM' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','MEDICINE' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','RETAIL' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','SERVICE' , 0);");
-        db.execSQL("INSERT INTO expends VALUES('" + name + "','TRAVEL' , 0);");
+        db = openOrCreateDatabase(u_name, Context.MODE_PRIVATE, null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS expend(catagory VARCHAR,total int(10));");
+
+
     }
 
     @Override
@@ -148,7 +134,8 @@ public class AddReminderActivity extends AppCompatActivity implements AdapterVie
             db.execSQL("INSERT INTO remdb VALUES('" + name + "','" + title.getText() + "','" + txtAmt.getText() + "','" + txtDate.getText() +
                     "','" + txtTime.getText() + "');");
             Toast.makeText(getApplicationContext(), " values added    ", Toast.LENGTH_SHORT).show();
-            db.execSQL("UPDATE expends SET total= (select sum(amount) from remdb where name= '" + name + "')" + "where catagory = '" + name + "' and uname = '"+name+"';");
+            //db.execSQL("UPDATE expends SET total= (select sum(amount) from remdb where name= '" + name + "')" + "where catagory = '" + name + "' and uname = '"+name+"';");
+            db.execSQL("UPDATE expend SET total= (select sum(amount) from remdb where name= '" + name +"')" + "where catagory = '"+ name +"'");
 
 
            /* Intent intent = new Intent(MainActivity.this, BroadcastNotify.class);
@@ -190,7 +177,8 @@ public class AddReminderActivity extends AppCompatActivity implements AdapterVie
 
             if ((txtAmt.getText().toString().trim().length() != 0)) {
                 db.execSQL("UPDATE remdb SET amount='" + txtAmt.getText() + "' WHERE descp='" + title.getText() + "' and name='" + name + "'");
-                db.execSQL("UPDATE expends SET total= (select sum(amount) from remdb where name= '" + name + "')" + "where catagory = '" + name + "' and uname = '"+name+"';");
+                //db.execSQL("UPDATE expends SET total= (select sum(amount) from remdb where name= '" + name + "')" + "where catagory = '" + name + "' and uname = '"+name+"';");
+                db.execSQL("UPDATE expend SET total= (select sum(amount) from remdb where name= '" + name +"')" + "where catagory = '"+ name +"'");
 
             }
             if ((txtDate.getText().toString().trim().length() != 0)) {
@@ -215,7 +203,8 @@ public class AddReminderActivity extends AppCompatActivity implements AdapterVie
             }
 
             db.execSQL("DELETE FROM remdb WHERE descp='" + title.getText() + "' and name='" + name + "'");
-            db.execSQL("UPDATE expends SET total= (select sum(amount) from remdb where name= '" + name + "')" + "where catagory = '" + name + "' and uname = '"+name+"';");
+            //db.execSQL("UPDATE expends SET total= (select sum(amount) from remdb where name= '" + name + "')" + "where catagory = '" + name + "' and uname = '"+name+"';");
+            db.execSQL("UPDATE expend SET total= (select sum(amount) from remdb where name= '" + name +"')" + "where catagory = '"+ name +"'");
 
             clearText();
         }

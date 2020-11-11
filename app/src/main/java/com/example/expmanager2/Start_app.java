@@ -33,7 +33,7 @@ public class Start_app extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.action_signup:
-                        startActivity(new Intent(getApplicationContext(),User_profile.class));
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                 }

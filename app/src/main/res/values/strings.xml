@@ -18,5 +18,6 @@
         <item>TRAVEL</item>
     </string-array>
     <string name="add_reminder">Reminder</string>
+    <string name="expensesio">Expensesio</string>
 
 </resources>

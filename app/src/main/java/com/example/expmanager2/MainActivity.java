@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button b1,b2,b3;
     EditText un,em,mno,pwd;
-    SQLiteDatabase db;
+    SQLiteDatabase db,db1;
     private int mYear, mMonth, mDay;
     TextView tx1;
     int c=0;
@@ -105,6 +105,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     db.execSQL("INSERT INTO userdet VALUES('" + un.getText() + "','" + pwd.getText() + "','" + mno.getText() +
                             "','" + em.getText() + "');");
                     Toast.makeText(getApplicationContext(),"User registration success", Toast.LENGTH_SHORT).show();
+                    db1 = openOrCreateDatabase(String.valueOf(un.getText()), Context.MODE_PRIVATE, null);
+                    db1.execSQL("CREATE TABLE IF NOT EXISTS expend(catagory VARCHAR,total int(10));");
+                    db1.execSQL("CREATE TABLE IF NOT EXISTS remdb(name VARCHAR,descp VARCHAR,amount int(10),date VARCHAR,time VARCHAR );");
+                    db1.execSQL("INSERT INTO expend VALUES('ELECTRICITY' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('DTH/CABLE' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('TELEPHONE' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('GROCERY' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('OTHERS' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('ONLINE SHOPPING' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('ALERT' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('GYM' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('FOOD' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('INSURANCE' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('LOAN' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('MEDICINE' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('RETAIL' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('SERVICE' , 0);");
+                    db1.execSQL("INSERT INTO expend VALUES('TRAVEL' , 0);");
+
                     Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                     PendingIntent pi=PendingIntent.getActivity(getApplicationContext(), 0, intent,0);
                     //Get the SmsManager instance and call the sendTextMessage method to send message

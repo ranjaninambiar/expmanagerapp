@@ -1,5 +1,6 @@
 package com.example.expmanager2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,17 +9,26 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class catagorylist extends AppCompatActivity implements AdapterView.OnItemClickListener  {
     ListView lv,listView;
     SQLiteDatabase db;
+
+    //String[] clist = {"ELECTRICITY", "DTH/CABLE", "TELEPHONE", "GROCERY", "OTHERS", "ONLINE SHOPPING","ALERT","GYM","FOOD","INSURANCE","LOAN","MEDICINE","RETAIL","SERVICE","TRAVEL"};
+   // String[] csublist = {"monthly deadlines and transaction ", " monthly deadline and transaction", "monthly deadline and transaction"," monthly deadline for groceries" ,"for other purposes","online order delivery payment" ,"expense exceeds budget" ,
+       //     " "," "," "," "," "," "," "," "};
+    String[] clist = {"ELECTRICITY", "DTH/CABLE", "TELEPHONE", "GROCERY", "OTHERS", "ONLINE SHOPPING","ALERT","GYM","FOOD","INSURANCE","LOAN","MEDICINE","RETAIL","SERVICE","TRAVEL",""};
+    String[] csublist = {"monthly bills:TNEB...", " monthly bills:Tatasky...", "monthly bills:BSNL,Airtel..."," monthly bills:supermarket.." ,"for other purposes","monthle bills:Myntra.." ,"expensive bills.." ,
+            "monthly bills:trainer,equipment... "," monthly bills: Swiggy...","monthly bills:Car,Health.. ","monthly bills:Education,housing... "," monthly bills: Pharmacy,doctors..","monthly bills: other retail mart... "," monthly bills:Mechanic,plumber,transport servicing...","monthly bills: Transport,vacations... ",""};
     private Integer imageid[] = {
             R.drawable.electricity,
             R.drawable.dth,
@@ -34,12 +44,11 @@ public class catagorylist extends AppCompatActivity implements AdapterView.OnIte
             R.drawable.medicine,
             R.drawable.retail,
             R.drawable.service,
-            R.drawable.travel
+            R.drawable.travel,
+            R.drawable.white
 
     };
-    String[] clist = {"ELECTRICITY", "DTH/CABLE", "TELEPHONE", "GROCERY", "OTHERS", "ONLINE SHOPPING","ALERT","GYM","FOOD","INSURANCE","LOAN","MEDICINE","RETAIL","SERVICE","TRAVEL"};
-    String[] csublist = {"monthly deadlines and transaction ", " monthly deadline and transaction", "monthly deadline and transaction"," monthly deadline for groceries" ,"for other purposes","online order delivery payment" ,"expense exceeds budget" ,
-            " "," "," "," "," "," "," "," "};
+
 
     FloatingActionButton mAddReminderButton;
     @Override
@@ -47,7 +56,8 @@ public class catagorylist extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catagorylist);
         // Setting header
-
+        Bundle b=getIntent().getExtras();
+        final String u_name=b.getString("name");
         ListView listView=(ListView)findViewById(R.id.list);
         // For populating list data
         CustomCountryList customCountryList = new CustomCountryList(this, clist, csublist, imageid);
@@ -72,6 +82,31 @@ public class catagorylist extends AppCompatActivity implements AdapterView.OnIte
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener((AdapterView.OnItemClickListener) this);*/
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.action_home1);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.action_home1:
+                        startActivity(new Intent(getApplicationContext(),User_profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.action_rem:
+                        return true;
+                    case R.id.action_settings1:
+                        startActivity(new Intent(getApplicationContext(),About_us.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.action_cal:
+                        startActivity(new Intent(getApplicationContext(),login.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                }
+                return false;
+            }
+        });
 
         FloatingActionButton mAddReminderButton = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -79,12 +114,15 @@ public class catagorylist extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AddReminderActivity.class);
+                intent.putExtra("name", String.valueOf(u_name));
                 startActivity(intent);
             }
         });
-        db = openOrCreateDatabase("UsersDB", Context.MODE_PRIVATE, null);
+        db = openOrCreateDatabase(u_name, Context.MODE_PRIVATE, null);
         db.execSQL("CREATE TABLE IF NOT EXISTS expend(catagory VARCHAR,total int(10));");
         db.execSQL("CREATE TABLE IF NOT EXISTS remdb(name VARCHAR,descp VARCHAR,amount int(10),date VARCHAR,time VARCHAR );");
+
+
 
     }
 

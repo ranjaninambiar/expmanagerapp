@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Reminder"
+        android:id="@+id/action_rem"
+        android:icon="@drawable/ic_baseline_markunread_24"/>
+    <item android:title="Calender"
+        android:id="@+id/action_cal"
+        android:icon="@drawable/ic_baseline_calendar_today_24"/>
+
+    <item android:title="Settings"
+        android:id="@+id/action_settings1"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+
+    <item android:title="Stats"
+        android:id="@+id/action_home1"
+        android:icon="@drawable/pie"/>
+
+</menu>

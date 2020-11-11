@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:layout_marginTop="15dp"
+    android:paddingTop="10dp"
+    android:orientation="horizontal" >
 
-    >
     <ImageView
-
-        android:layout_rowSpan="2"
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:background="#FFFFFF"
-        android:scaleType="fitXY"
         android:id="@+id/imageView"
-        android:layout_row="0"
-        android:layout_column="0" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
-        android:textSize="30dp"
-        android:textColor="#EA1909"
-        android:id="@+id/textViewClist"
-        android:background="@color/colorAccent"
-        android:layout_row="0"
-        android:layout_column="1" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="10dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="#FFFFFF"
-        android:textSize="20dp"
-        android:textColor="#4B0082"
-        android:id="@+id/textViewCsublist"
-        android:layout_row="1"
-        android:layout_column="1" />
-</GridLayout>
+        android:padding="5dp" />
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewClist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorAccent"
+            android:padding="2dp"
+            android:textColor="#E91E63" />
+        <TextView
+            android:id="@+id/textViewCsublist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:background="#FFFFFF"
+            android:textStyle="italic"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+</LinearLayout>
 

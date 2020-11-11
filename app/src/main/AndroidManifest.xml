@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User_profile"></activity>
+        <activity android:name=".About_us"></activity>
+        <activity android:name=".User_profile" />
         <activity android:name=".CustomCountryList" />
         <activity android:name=".catagorylist" />
         <activity android:name=".AddReminderActivity" />
@@ -25,6 +26,10 @@
         <activity android:name=".form" />
         <activity android:name=".login" />
         <activity android:name=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
