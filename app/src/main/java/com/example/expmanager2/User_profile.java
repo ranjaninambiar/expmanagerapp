@@ -83,9 +83,9 @@ public class User_profile extends AppCompatActivity {
     private void setData1()
     {
 
-        Cursor cursors1 = db2.rawQuery("select * from expend where catagory = 'Below 1000' and uname ='"+name+"';", null);
+        Cursor cursors1 = db2.rawQuery("select * from expend where catagory = 'GROCERY' and uname ='"+name+"';", null);
         int c1=cursors1.getCount();
-        Cursor cursors2 = db2.rawQuery("select * from expend where price = 'Below 5000' and uname ='"+name+"';", null);
+        Cursor cursors2 = db2.rawQuery("select * from expend where price = 'ELECTRICITY' and uname ='"+name+"';", null);
         int c2=cursors2.getCount();
         Cursor cursors3 = db2.rawQuery("select * from expend where price = 'Above 5000 ' and uname ='"+name+"';", null);
         int c3=cursors3.getCount();
