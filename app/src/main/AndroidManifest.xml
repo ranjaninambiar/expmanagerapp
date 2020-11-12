@@ -11,18 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".About_us"></activity>
-        <activity android:name=".User_profile" />
-        <activity android:name=".CustomCountryList" />
-        <activity android:name=".catagorylist" />
-        <activity android:name=".AddReminderActivity" />
-        <activity android:name=".Start_app">
+        <activity android:name=".Splash_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".About_us" />
+        <activity android:name=".User_profile" />
+        <activity android:name=".CustomCountryList" />
+        <activity android:name=".catagorylist" />
+        <activity android:name=".AddReminderActivity" />
+        <activity android:name=".Start_app"/>
         <activity android:name=".form" />
         <activity android:name=".login" />
         <activity android:name=".MainActivity" />
